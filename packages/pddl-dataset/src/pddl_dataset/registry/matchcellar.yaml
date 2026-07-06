@@ -1,0 +1,19 @@
+name: matchcellar
+binary: ./matchcellar.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: matches
+    type: int
+    positional: 0
+    required: true
+    default_test: 3
+    description: "Number of matches (fuses = matches * 2)"
+  - name: seed
+    type: int
+    flag: "--seed"
+    default_test: 1
+    description: "Random seed"

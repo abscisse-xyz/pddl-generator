@@ -1,0 +1,45 @@
+name: elevators
+binary: ./generate.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: areas
+    type: int
+    positional: 0
+    required: true
+    default_test: 2
+    description: "Number of areas"
+  - name: area_size
+    type: int
+    positional: 1
+    required: true
+    default_test: 3
+    description: "Area size (>= 2)"
+  - name: passengers
+    type: int
+    positional: 2
+    required: true
+    default_test: 4
+    description: "Number of passengers"
+  - name: fast_elevators
+    type: int
+    positional: 3
+    required: true
+    default_test: 5
+    description: "Number of fast elevators"
+  - name: slow_elevators
+    type: int
+    positional: 4
+    required: true
+    default_test: 6
+    description: "Number of slow elevators"
+  - {name: seed,            type: int, flag: "--seed",            default_test: 1}
+  - {name: fast_capacity,   type: int, flag: "--fast_capacity",   default_test: 6}
+  - {name: slow_capacity,   type: int, flag: "--slow_capacity",   default_test: 4}
+  - {name: slow_cost,       type: int, flag: "--slow_cost",       default_test: 1}
+  - {name: stop_slow_cost,  type: int, flag: "--stop_slow_cost",  default_test: 5}
+  - {name: fast_cost,       type: int, flag: "--fast_cost",       default_test: 3}
+  - {name: stop_fast_cost,  type: int, flag: "--stop_fast_cost",  default_test: 1}

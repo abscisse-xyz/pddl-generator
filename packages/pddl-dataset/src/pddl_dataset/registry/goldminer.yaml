@@ -1,0 +1,11 @@
+name: goldminer
+binary: ./gold-miner-generator
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: rows,    type: int, flag: "-r", required: true, default_test: 3, description: "Number of rows (minimal 1)"}
+  - {name: columns, type: int, flag: "-c", required: true, default_test: 3, description: "Number of columns (minimal 1)"}
+  - {name: seed,    type: int, flag: "-s", default_test: 1, description: "Random seed"}

@@ -1,0 +1,12 @@
+name: grippers
+binary: ./grippers
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: robots, type: int, flag: "-n", required: true, default_test: 1, description: "Number of robots (minimal 1)"}
+  - {name: rooms,  type: int, flag: "-r", required: true, default_test: 2, description: "Number of rooms (minimal 1)"}
+  - {name: balls,  type: int, flag: "-o", required: true, default_test: 2, description: "Number of balls (minimal 1)"}
+  - {name: seed,   type: int, flag: "-s", default_test: 1, description: "Random seed"}

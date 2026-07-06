@@ -1,0 +1,17 @@
+name: assembly
+binary: ./assembly
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: depth,             type: int, flag: "-d", default_test: 5,  description: "Depth of tree (minimal 1)"}
+  - {name: max_sons,          type: int, flag: "-m", default_test: 5,  description: "Max number of sons (minimal 1)"}
+  - {name: p_has_sons,        type: int, flag: "-h", default_test: 90, range: [0, 100], description: "Probability (%) any node has sons"}
+  - {name: resources,         type: int, flag: "-n", default_test: 1,  description: "Number of resources"}
+  - {name: p_requires,        type: int, flag: "-r", default_test: 5,  range: [0, 100], description: "Probability (%) of requiring any resource"}
+  - {name: p_transient_part,  type: int, flag: "-t", default_test: 5,  range: [0, 100], description: "Probability (%) of transient part to any node in father rows"}
+  - {name: p_assemble_order,  type: int, flag: "-a", default_test: 25, range: [0, 100], description: "Probability (%) of assemble order to any higher part"}
+  - {name: p_remove_order,    type: int, flag: "-o", default_test: 50, range: [0, 100], description: "Probability (%) of remove order to transient part"}
+  - {name: seed,              type: int, flag: "-s", description: "Random seed"}

@@ -1,0 +1,11 @@
+name: ferry
+binary: ./ferry
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: locations, type: int, flag: "-l", required: true, default_test: 2, description: "Number of locations (minimal 1)"}
+  - {name: cars,      type: int, flag: "-c", required: true, default_test: 2, description: "Number of cars"}
+  - {name: seed,      type: int, flag: "-s", description: "Random seed"}

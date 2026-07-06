@@ -1,0 +1,22 @@
+name: rovers
+binary: ./rovgen
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+# rovgen takes optional flags [-s|-t|-n|-u|-f <filename>] then six positional
+# integers: <seed> <#rovers> <#waypoints> <#objectives> <#cameras> <#n-goals>.
+# Note: the binary writes to stdout regardless; the -f flag is parsed but unused.
+parameters:
+  - {name: simple_time, type: bool, flag: "-s", description: "Simple-time problem variant"}
+  - {name: timed,       type: bool, flag: "-t", description: "Timed problem variant"}
+  - {name: numeric,     type: bool, flag: "-n", description: "Numeric problem variant"}
+  - {name: untyped,     type: bool, flag: "-u", description: "Untyped variant"}
+  - {name: out_file,    type: str,  flag: "-f", description: "Output filename (parsed but unused; output still goes to stdout)"}
+  - {name: seed,        type: int, positional: 0, required: true, default_test: 1, description: "Random seed"}
+  - {name: rovers,      type: int, positional: 1, required: true, default_test: 1, description: "Number of rovers"}
+  - {name: waypoints,   type: int, positional: 2, required: true, default_test: 4, description: "Number of waypoints"}
+  - {name: objectives,  type: int, positional: 3, required: true, default_test: 2, description: "Number of objectives"}
+  - {name: cameras,     type: int, positional: 4, required: true, default_test: 1, description: "Number of cameras"}
+  - {name: goals,       type: int, positional: 5, required: true, default_test: 3, description: "Number of n-goals"}

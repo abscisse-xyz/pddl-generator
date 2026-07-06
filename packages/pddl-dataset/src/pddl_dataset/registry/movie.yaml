@@ -1,0 +1,14 @@
+name: movie
+binary: ./movie
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: items
+    type: int
+    flag: "-n"
+    required: true
+    default_test: 2
+    description: "Number of items of each snack"

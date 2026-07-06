@@ -1,0 +1,24 @@
+name: tetris
+binary: ./generator.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: grid_size
+    type: int
+    positional: 0
+    required: true
+    default_test: 4
+    description: "Grid size (number of rows; even, columns fixed at 4)"
+  - name: block_type
+    type: int
+    positional: 1
+    required: true
+    default_test: 3
+    description: "Block configuration: 1=1x1 squares, 2=2x1, 3=L, 4=mix"
+  - name: seed
+    type: int
+    positional: 2
+    description: "Random seed (optional)"

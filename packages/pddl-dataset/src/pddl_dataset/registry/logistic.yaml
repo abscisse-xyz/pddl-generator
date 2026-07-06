@@ -1,0 +1,20 @@
+name: logistic
+python_module: pddl_problem.logistic.generator_cmd_line
+domain_file:
+  source: emitted_by_generator
+  flag: "-domain_file"
+output:
+  mode: file_arg
+  flag: "-problem_file"
+fixed_args:
+  - "-problem_name"
+  - "logistic"
+parameters:
+  - {name: locations,    type: int, flag: "-locations",    required: true, default_test: 4, description: "Number of locations (>=2)"}
+  - {name: robots,       type: int, flag: "-robots",       required: true, default_test: 2, description: "Number of robots (>=1)"}
+  - {name: packages,     type: int, flag: "-packages",     required: true, default_test: 2, description: "Number of packages (>=1)"}
+  - {name: min_distance, type: int, flag: "-min_distance", default_test: 5}
+  - {name: max_distance, type: int, flag: "-max_distance", default_test: 12}
+  - {name: min_velocity, type: int, flag: "-min_velocity", default_test: 1}
+  - {name: max_velocity, type: int, flag: "-max_velocity", default_test: 2}
+  - {name: seed,         type: int, flag: "-seed",         description: "Random seed"}

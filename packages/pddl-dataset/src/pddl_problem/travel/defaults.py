@@ -1,0 +1,6 @@
+"""Defaults for travel instance generation."""
+
+DEFAULT_LOCATIONS = 5
+DEFAULT_EXTRA_EDGES = 2
+DEFAULT_MIN_TRAVEL_TIME = 20
+DEFAULT_MAX_TRAVEL_TIME = 120

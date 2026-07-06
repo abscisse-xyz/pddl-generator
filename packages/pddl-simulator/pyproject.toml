@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pddl-simulator"
+version = "0.1.0"
+description = "PDDL Simulator"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "duckdb>=1.0",
+    "pydantic>=2.0",
+    "setuptools>=68,<81",
+    # ENHSP is JVM-based and works across architectures. The other planners
+    # rely on native binaries and are currently excluded only for linux/arm64
+    # targets, where their packaged artifacts are not available.
+    "unified-planning[enhsp]>=1.3.0.207.dev1; sys_platform == 'linux' and platform_machine == 'aarch64'",
+    "unified-planning[enhsp]>=1.3.0.207.dev1; sys_platform == 'linux' and platform_machine == 'arm64'",
+    "unified-planning[enhsp,aries,fast-downward,fmap]>=1.3.0.207.dev1; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "unified-planning[enhsp,aries,fast-downward,fmap]>=1.3.0.207.dev1; sys_platform != 'linux'",
+    "joblib>=1.5.3",
+]
+
+[dependency-groups]
+dev = [
+    "pddl-dataset",  # tests rely on the migrated sailing_tils / sailing_no_tils generators
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# test configuration
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --import-mode=importlib"
+testpaths = [
+    "tests"
+]

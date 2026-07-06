@@ -1,0 +1,52 @@
+name: maintenance
+binary: ./maintenance
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+# NOTE: maintenance.c expects argc 7 or 8. argv[1..5] are days, planes, mechanics,
+# cities, visits. argv[6] is REQUIRED but never read by the program (it's an
+# unused/buggy slot). argv[7] is the optional seed. We model the required-but-
+# unused argv[6] as `unused` and the optional seed as positional 6.
+parameters:
+  - name: days
+    type: int
+    positional: 0
+    required: true
+    default_test: 60
+    description: "Number of days"
+  - name: planes
+    type: int
+    positional: 1
+    required: true
+    default_test: 180
+    description: "Number of planes (vehicles)"
+  - name: mechanics
+    type: int
+    positional: 2
+    required: true
+    default_test: 1
+    description: "Number of mechanics"
+  - name: cities
+    type: int
+    positional: 3
+    required: true
+    default_test: 3
+    description: "Number of cities"
+  - name: visits
+    type: int
+    positional: 4
+    required: true
+    default_test: 5
+    description: "Number of visits per plane"
+  - name: unused
+    type: int
+    positional: 5
+    required: true
+    default_test: 100
+    description: "Required argv[6] but never read by the binary; pass any int"
+  - name: seed
+    type: int
+    positional: 6
+    description: "Random seed (optional, argv[7])"

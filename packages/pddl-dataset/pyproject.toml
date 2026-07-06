@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pddl-dataset"
+version = "0.1.0"
+description = "Unified CLI wrapper around the pddl-generators benchmark generators."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+pddl_dataset = ["registry/*.yaml"]
+pddl_problem = [
+    "citycar/domain.pddl",
+    "travel/domain.pddl",
+    "logistic/domain.pddl",
+    "sailing_tils/domain.pddl",
+    "sailing_no_tils/domain.pddl",
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --import-mode=importlib"
+testpaths = ["tests"]

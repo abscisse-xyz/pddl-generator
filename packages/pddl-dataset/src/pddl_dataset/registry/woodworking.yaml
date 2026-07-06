@@ -1,0 +1,30 @@
+name: woodworking
+binary: ./create_woodworking_instance.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: wood_factor
+    type: float
+    positional: 0
+    required: true
+    default_test: 1
+    description: "Wood factor (>=1)"
+  - name: size
+    type: int
+    positional: 1
+    required: true
+    default_test: 2
+    description: "Number of parts"
+  - name: num_machines
+    type: int
+    positional: 2
+    required: true
+    default_test: 3
+    description: "Number of machines (per type)"
+  - name: seed
+    type: int
+    positional: 3
+    description: "Random seed (optional)"

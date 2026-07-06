@@ -1,0 +1,22 @@
+name: cavediving
+binary: ./generator/generator.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: file_arg
+  flag: "-problem_file"
+fixed_args:
+  - "-problem_name"
+  - "instance"
+parameters:
+  - {name: cave_branches,        type: int_seq, flag: "-cave_branches",        default_test: [3]}
+  - {name: objectives,           type: int_seq, flag: "-objectives",           default_test: [3]}
+  - {name: num_tank_adjustment,  type: int,     flag: "-num_tank_adjustment",  default_test: 0}
+  - {name: num_diver_adjustment, type: int,     flag: "-num_diver_adjustment", default_test: 0}
+  - {name: neg_link_prob,        type: float,   flag: "-neg_link_prob",        default_test: 0.5, range: [0, 1]}
+  - {name: minimum_hiring_cost,  type: int,     flag: "-minimum_hiring_cost",  default_test: 10}
+  - {name: maximum_hiring_cost,  type: int,     flag: "-maximum_hiring_cost",  default_test: 100}
+  - {name: other_action_cost,    type: float,   flag: "-other_action_cost",    default_test: 1}
+  - {name: order_tanks,          type: bool,    flag: "-order_tanks",          description: "Force preparation order of tanks (omit for generator default of True)"}
+  - {name: seed,                 type: int,     flag: "-seed",                 description: "Random seed"}

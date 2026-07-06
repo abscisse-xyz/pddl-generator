@@ -1,0 +1,11 @@
+name: fridge
+binary: ./fridge
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: screws,  type: int, flag: "-s", required: true, default_test: 1, description: "Number of screws per plane (minimal 1)"}
+  - {name: fridges, type: int, flag: "-f", required: true, default_test: 1, description: "Number of fridges (minimal 1)"}
+  - {name: seed,    type: int, flag: "-r", default_test: 1, description: "Random seed"}

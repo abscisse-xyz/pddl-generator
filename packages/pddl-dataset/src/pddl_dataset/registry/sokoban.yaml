@@ -1,0 +1,12 @@
+name: sokoban
+binary: ./random/sokoban-generator-typed
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: grid_size, type: int, flag: "-n", default_test: 5, description: "Grid size (minimal 5)"}
+  - {name: boxes,     type: int, flag: "-b", default_test: 1, description: "Number of boxes (minimal 1)"}
+  - {name: walls,     type: int, flag: "-w", default_test: 0, description: "Number of walls (minimal 0)"}
+  - {name: seed,      type: int, flag: "-s",                  description: "Random seed"}

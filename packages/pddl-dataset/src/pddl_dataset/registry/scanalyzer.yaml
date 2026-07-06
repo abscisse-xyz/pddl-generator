@@ -1,0 +1,32 @@
+name: scanalyzer
+binary: ./generator.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: size
+    type: int
+    positional: 0
+    required: true
+    default_test: 3
+    description: "Size parameter"
+  - name: segment_type
+    type: str
+    positional: 1
+    required: true
+    default_test: half
+    description: "Segment type (half, ab, or other)"
+  - name: inout
+    type: str
+    positional: 2
+    required: true
+    default_test: in
+    description: "Inout mode (in, both, none)"
+  - name: seed
+    type: int
+    flag: "--seed"
+    default: 1
+    default_test: 1
+    description: "Random seed"

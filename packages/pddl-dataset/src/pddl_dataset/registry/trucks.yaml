@@ -1,0 +1,17 @@
+name: trucks
+domain_file:
+  source: emitted_by_generator
+  filename: domain.pddl  # the wrapper writes domain.pddl directly to the path we pass
+parameters:
+  - {name: seed,     type: int, flag: "-seed", default_test: 1}
+  - {name: trucks,   type: int, flag: "-t",    default_test: 1}
+  - {name: locations,type: int, flag: "-l",    default_test: 3}
+  - {name: packages, type: int, flag: "-p",    default_test: 3}
+  - {name: areas,    type: int, flag: "-a",    default_test: 2}
+  - {name: time_windows, type: int, flag: "-n", default_test: 1}
+custom_recipe:
+  commands:
+    # trucks-strips.sh writes the strips domain + problem to the two paths it gets.
+    # It is expected to be co-located with trucks.c (already compiled to ./trucks)
+    # and adl2strips/ff (already built).
+    - "./trucks-strips.sh {domain_path} {problem_path} -seed {param_seed} -t {param_trucks} -l {param_locations} -p {param_packages} -a {param_areas} -n {param_time_windows}"

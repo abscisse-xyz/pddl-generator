@@ -1,0 +1,16 @@
+name: delivery
+domain_file:
+  source: static
+  path: domain.pddl
+parameters:
+  - {name: grid_size_splits,        type: str, flag: "--grid_size_splits",        required: true, default_test: "2"}
+  - {name: max_nr_packages,         type: int, flag: "--max_nr_packages",         required: true, default_test: 1}
+  - {name: nr_instances_per_setup,  type: int, flag: "--nr_instances_per_setup",  required: true, default_test: 1}
+custom_recipe:
+  commands:
+    # generate.py writes instances under output/train/instance_s-<size>-p-<packages>-v-<idx>.pddl
+    # We invoke it once with the requested params, copy the first generated file out,
+    # then clean its scratch output dir so subsequent runs start fresh.
+    - "rm -rf output"
+    - "uv run generate.py --grid_size_splits={param_grid_size_splits} --max_nr_packages={param_max_nr_packages} --nr_instances_per_setup={param_nr_instances_per_setup} > /dev/null"
+    - "cp $(ls output/train/*.pddl | head -1) {problem_path}"

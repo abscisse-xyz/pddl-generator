@@ -1,0 +1,20 @@
+name: schedule
+binary: ./schedule
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: parts,                    type: int, flag: "-p", required: true,  default_test: 1, description: "Number of parts (minimal 1)"}
+  - {name: shapes,                   type: int, flag: "-s",                  default_test: 0, description: "Number of shapes (max 2)"}
+  - {name: colours,                  type: int, flag: "-c",                  default_test: 1, description: "Number of colors (1..4)"}
+  - {name: widths,                   type: int, flag: "-w",                  default_test: 1, description: "Number of widths (1..3)"}
+  - {name: orientations,             type: int, flag: "-o",                  default_test: 1, description: "Number of orientations (1..2)"}
+  - {name: prob_g_cylindrical,       type: int, flag: "-Q",                  default_test: 50, description: "Probability of cylindrical goal"}
+  - {name: prob_i_colour,            type: int, flag: "-W",                  default_test: 30, description: "Probability of colour in I"}
+  - {name: prob_g_colour,            type: int, flag: "-E",                  default_test: 50, description: "Probability of colour in G"}
+  - {name: prob_i_hole,              type: int, flag: "-R",                  default_test: 30, description: "Probability of hole in I"}
+  - {name: prob_g_hole,              type: int, flag: "-T",                  default_test: 50, description: "Probability of hole in G"}
+  - {name: prob_g_surface,           type: int, flag: "-Y",                  default_test: 30, description: "Probability of surface condition in G"}
+  - {name: seed,                     type: int, flag: "-r",                  default_test: 3, description: "Random seed"}

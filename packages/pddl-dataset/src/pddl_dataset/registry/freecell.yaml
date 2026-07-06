@@ -1,0 +1,17 @@
+name: freecell
+binary: ./freecell
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: cells,        type: int, flag: "-f", required: true, default_test: 5, description: "Number of (free)cells (minimal 0)"}
+  - {name: cols,         type: int, flag: "-c", required: true, default_test: 1, description: "Number of cols (minimal 1)"}
+  - {name: suits,        type: int, flag: "-s", required: true, default_test: 4, range: [1, 4], description: "Number of suits (1-4)"}
+  - {name: suit0_size,   type: int, flag: "-0", default_test: 2, description: "Suit 0 size"}
+  - {name: suit1_size,   type: int, flag: "-1", default_test: 2, description: "Suit 1 size"}
+  - {name: suit2_size,   type: int, flag: "-2", default_test: 2, description: "Suit 2 size"}
+  - {name: suit3_size,   type: int, flag: "-3", default_test: 2, description: "Suit 3 size"}
+  - {name: init_stacks,  type: int, flag: "-i", required: true, default_test: 1, description: "Number of initial stacks (minimal 1)"}
+  - {name: seed,         type: int, flag: "-r", default_test: 0, description: "Random seed"}

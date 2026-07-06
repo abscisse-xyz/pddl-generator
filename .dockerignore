@@ -1,0 +1,14 @@
+.git
+.venv
+.tox
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.coverage
+.test-out
+out
+**/__pycache__
+**/*.pyc
+**/*.egg-info
+.claude
+.vscode

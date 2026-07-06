@@ -1,0 +1,18 @@
+name: sailing-tils
+python_module: pddl_problem.sailing_tils.generator_cmd_line
+domain_file:
+  source: emitted_by_generator
+  flag: "-domain_file"
+output:
+  mode: file_arg
+  flag: "-problem_file"
+fixed_args:
+  - "-problem_name"
+  - "sailing_tils"
+parameters:
+  - {name: num_boats,       type: int,       flag: "-num_boats",       required: true, default_test: 1, description: "Number of boats (>=1)"}
+  - {name: boat_positions,  type: float_seq, flag: "-boat_positions",  default_test: [0.0], description: "Initial x-position per boat; length must equal num_boats"}
+  - {name: num_people,      type: int,       flag: "-num_people",      required: true, default_test: 1, description: "Number of people to rescue (>=1)"}
+  - {name: delta,           type: float,     flag: "-delta",           required: true, default_test: 6.0, description: "Spacing factor for person radii (>0)"}
+  - {name: center_x,        type: float,     flag: "-center_x",        description: "Center x for person placement"}
+  - {name: center_y,        type: float,     flag: "-center_y",        description: "Center y for person placement"}

@@ -1,0 +1,40 @@
+# Note: zenotravel optionally accepts leading flag-like switches (-n/-s/-t/-c/-u) before
+# the positional args; the test recipe omits them so the default STRIPS/typed mode is used.
+# These switches are not modeled here as Parameters (they are mutually exclusive variant
+# selectors rather than typical key-value flags). Override via fixed_args if needed.
+name: zenotravel
+binary: ./ztravel
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: seed
+    type: int
+    positional: 0
+    required: true
+    default_test: 1
+    description: "Random seed"
+  - name: cities
+    type: int
+    positional: 1
+    required: true
+    default_test: 3
+    description: "Number of cities"
+  - name: planes
+    type: int
+    positional: 2
+    required: true
+    default_test: 1
+    description: "Number of planes"
+  - name: people
+    type: int
+    positional: 3
+    required: true
+    default_test: 2
+    description: "Number of people"
+  - name: distance
+    type: int
+    positional: 4
+    description: "Random distance bound (optional; >0 enables random distances)"

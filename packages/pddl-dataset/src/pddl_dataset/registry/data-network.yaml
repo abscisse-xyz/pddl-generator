@@ -1,0 +1,33 @@
+name: data-network
+binary: ./generator/generator.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: data
+    type: int
+    positional: 0
+    required: true
+    default_test: 6
+    description: "Number of data items"
+  - name: layers
+    type: int
+    positional: 1
+    required: true
+    default_test: 3
+    description: "Number of layers (must be < data)"
+  - name: scripts
+    type: int
+    positional: 2
+    required: true
+    default_test: 4
+    description: "Number of scripts (>= data - 2)"
+  - name: module
+    type: str
+    positional: 3
+    required: true
+    default_test: ring-network
+    description: "Network module: ring-network | small-network | tiny-network"
+  - {name: seed, type: int, flag: "--seed", default_test: 7, description: "Random seed"}

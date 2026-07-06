@@ -1,0 +1,31 @@
+name: termes
+binary: ./generate-autoscale.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: size_x,             type: int,  flag: "--size_x",             default: 4, default_test: 4}
+  - {name: size_y,             type: int,  flag: "--size_y",             default: 4, default_test: 4}
+  - {name: min_height,         type: int,  flag: "--min_height",         default: 1, default_test: 1}
+  - {name: max_height,         type: int,  flag: "--max_height",         default: 4, default_test: 4}
+  - {name: num_towers,         type: int,  flag: "--num_towers",         default: 4, default_test: 4}
+  - {name: ensure_plan_tries,  type: int,  flag: "--ensure_plan_tries",  default: 20, default_test: 20}
+  # store_true flags: argparse expects no value; omit default so the runner
+  # leaves the flag off when the user doesn't explicitly opt in.
+  - {name: ensure_plan,        type: bool, flag: "--ensure_plan",        description: "(store_true) attempt to ensure problem is solvable"}
+  - {name: dont_remove_slack,  type: bool, flag: "--dont_remove_slack",  description: "(store_true) keep slack predicates"}
+  - {name: store_plan,         type: bool, flag: "--store_plan",         description: "(store_true) embed solution plan as a comment"}
+  - name: seed
+    type: int
+    positional: 0
+    required: true
+    default_test: 4
+    description: "Random seed"
+  - name: output_type
+    type: str
+    positional: 1
+    required: true
+    default_test: pddl
+    description: "Output type: pddl, pddlfile, or readable"

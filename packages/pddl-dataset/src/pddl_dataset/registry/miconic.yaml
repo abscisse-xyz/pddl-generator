@@ -1,0 +1,11 @@
+name: miconic
+binary: ./miconic
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: floors,     type: int, flag: "-f", required: true, default_test: 3, description: "Number of floors (>=2)"}
+  - {name: passengers, type: int, flag: "-p", required: true, default_test: 2, description: "Number of passengers (>=1)"}
+  - {name: seed,       type: int, flag: "-r", default_test: 1, description: "Random seed (optional)"}

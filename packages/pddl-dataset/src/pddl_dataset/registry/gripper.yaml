@@ -1,0 +1,14 @@
+name: gripper
+binary: ./gripper
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: balls
+    type: int
+    flag: "-n"
+    required: true
+    default_test: 3
+    description: "Number of balls"

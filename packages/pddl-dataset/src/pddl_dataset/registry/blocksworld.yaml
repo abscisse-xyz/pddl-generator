@@ -1,0 +1,26 @@
+name: blocksworld
+binary: ./blocksworld
+domain_file:
+  source: copy
+  path: 3ops/domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: ops
+    type: int
+    positional: 0
+    required: true
+    default_test: 3
+    description: "Operator set (3 or 4)"
+  - name: blocks
+    type: int
+    positional: 1
+    required: true
+    default_test: 5
+    description: "Number of blocks"
+  - name: seed
+    type: int
+    positional: 2
+    required: true
+    default_test: 1
+    description: "Random seed"

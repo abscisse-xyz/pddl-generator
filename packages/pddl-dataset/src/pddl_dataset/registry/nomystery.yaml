@@ -1,0 +1,15 @@
+name: nomystery
+binary: ./nomystery
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: locations,        type: int,   flag: "-l", required: true, default_test: 3, description: "Number of locations (>=2)"}
+  - {name: packages,         type: int,   flag: "-p", required: true, default_test: 1, description: "Number of packages (>=1)"}
+  - {name: edges_factor,     type: float, flag: "-n", description: "(int)(<-n>*<-l>) edges in location graph (>=1; default 1.5)"}
+  - {name: max_edge_weight,  type: int,   flag: "-m", description: "Edge weights drawn from 1..<-m> (>=1; default 25)"}
+  - {name: constrainedness,  type: float, flag: "-c", description: "Initial fuel = (int)(<-c>*optimalcost) (>=1; default 1)"}
+  - {name: seed,             type: int,   flag: "-s", required: true, default_test: 1, description: "Random seed (>=0)"}
+  - {name: encoding,         type: int,   flag: "-e", description: "Encoding type: 0=hard, 1=hard_cost (default 0)"}

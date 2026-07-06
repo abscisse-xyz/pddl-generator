@@ -1,0 +1,25 @@
+name: satellite
+binary: ./satgen
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+# satgen optional flags: [-T <d>|-u|-s|-t|-n|-c] then positional:
+#   <seed> <#sats> <#insts> <#modes> <#targets> <#observations>
+# Flags: -u untyped, -s simple-time, -t time, -n numeric, -c complex,
+#        -T <float> tightness of data in store capacities [0,1).
+parameters:
+  - {name: tightness,    type: float, flag: "-T", description: "Tightness of data in store capacities [0,1) (default 0.3)"}
+  - {name: untyped,      type: bool,  flag: "-u", description: "Generate untyped variant"}
+  - {name: simple_time,  type: bool,  flag: "-s", description: "Simple-time problem variant"}
+  - {name: timed,        type: bool,  flag: "-t", description: "Timed problem variant"}
+  - {name: numeric,      type: bool,  flag: "-n", description: "Numeric problem variant"}
+  - {name: complex,      type: bool,  flag: "-c", description: "Complex problem variant"}
+  - {name: hard_metric,  type: bool,  flag: "-h", description: "Use hard metric (instead of easy)"}
+  - {name: seed,         type: int, positional: 0, required: true, default_test: 1, description: "Random seed"}
+  - {name: satellites,   type: int, positional: 1, required: true, default_test: 1, description: "Number of satellites"}
+  - {name: instruments,  type: int, positional: 2, required: true, default_test: 3, description: "Max instruments per satellite"}
+  - {name: modes,        type: int, positional: 3, required: true, default_test: 3, description: "Number of modes"}
+  - {name: targets,      type: int, positional: 4, required: true, default_test: 7, description: "Number of targets"}
+  - {name: observations, type: int, positional: 5, required: true, default_test: 3, description: "Number of observations"}

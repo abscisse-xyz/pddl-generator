@@ -1,0 +1,10 @@
+# pegsol has no real generator; the upstream Makefile hand-writes a fixed minimal
+# instance via echo. We mirror that behaviour via a custom_recipe so the CLI
+# surface stays uniform.
+name: pegsol
+domain_file:
+  source: static
+  path: domain.pddl
+custom_recipe:
+  commands:
+    - "printf '%s\\n' '(define (problem pegsol-test)' '  (:domain pegsolitaire-sequential)' '  (:objects pos1 pos2 - location)' '  (:init (occupied pos1) (free pos2))' '  (:goal (occupied pos2)))' > {problem_path}"

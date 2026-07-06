@@ -1,0 +1,14 @@
+name: hanoi
+binary: ./hanoi
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: discs
+    type: int
+    flag: "-n"
+    required: true
+    default_test: 3
+    description: "Number of discs"

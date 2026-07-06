@@ -1,0 +1,19 @@
+name: minigrid
+domain_file:
+  source: static
+  path: domain.pddl
+# minigrid emits files of the form
+#   grid_<floorplan_basename>_s<nshapes>_seed<seed>_n<i>.pddl
+# under the --results dir, plus copies domain.pddl there. We use custom_recipe
+# to invoke the generator with --results pointing at out_dir, then move the
+# single produced file (n0) to the requested problem_path.
+parameters:
+  - {name: floorplan, type: str, positional: 0, required: true, default_test: "floorplans/4room2.fpl", description: "Floorplan file (path resolved relative to --floorplans_path)"}
+  - {name: nshapes,   type: int, positional: 1, required: true, default_test: 1, description: "Number of shapes for locks (0 = random)"}
+  - {name: seed,      type: int, flag: "--seed", default_test: 0, description: "Random seed"}
+  - {name: num_instances, type: int, flag: "--num_instances", description: "Number of instances to generate (default 1)"}
+  - {name: debug_level,   type: int, flag: "--debug_level",   description: "Debug level (default 0)"}
+custom_recipe:
+  commands:
+    - "./mini_grid.py --seed {param_seed} --results {out_dir} {param_floorplan} {param_nshapes}"
+    - "mv {out_dir}/grid_$(basename {param_floorplan} | tr . _)_s{param_nshapes}_seed{param_seed}_n0.pddl {problem_path}"

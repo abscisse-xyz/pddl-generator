@@ -1,0 +1,12 @@
+name: pathways
+domain_file:
+  source: emitted_by_generator
+  filename: domain.pddl
+parameters:
+  - {name: seed,               type: int, flag: "--seed",              default_test: 1}
+  - {name: reactions,          type: int, flag: "--reactions",         required: true, default_test: 12}
+  - {name: goals,              type: int, flag: "--goals",             required: true, default_test: 1}
+  - {name: initial_substances, type: int, flag: "--initial-substances", required: true, default_test: 3}
+custom_recipe:
+  commands:
+    - "./wrapper.py --seed {param_seed} --reactions {param_reactions} --goals {param_goals} --initial-substances {param_initial_substances} {domain_path} {problem_path}"

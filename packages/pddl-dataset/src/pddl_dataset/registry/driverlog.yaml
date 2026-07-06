@@ -1,0 +1,42 @@
+name: driverlog
+binary: ./dlgen
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: seed
+    type: int
+    positional: 0
+    required: true
+    default_test: 1
+    description: "Random seed"
+  - name: road_junctions
+    type: int
+    positional: 1
+    required: true
+    default_test: 5
+    description: "Number of road junctions"
+  - name: drivers
+    type: int
+    positional: 2
+    required: true
+    default_test: 2
+    description: "Number of drivers"
+  - name: packages
+    type: int
+    positional: 3
+    required: true
+    default_test: 2
+    description: "Number of packages"
+  - name: trucks
+    type: int
+    positional: 4
+    required: true
+    default_test: 2
+    description: "Number of trucks"
+  - name: distance
+    type: int
+    positional: 5
+    description: "Optional distance bound (positive value enables random distances)"

@@ -1,0 +1,26 @@
+name: grid
+binary: ./generate.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: x
+    type: int
+    positional: 0
+    required: true
+    default_test: 4
+    description: "X scale (minimal 2)"
+  - name: y
+    type: int
+    positional: 1
+    required: true
+    default_test: 5
+    description: "Y scale (minimal 2)"
+  - {name: shapes,    type: int,   flag: "--shapes",    default_test: 2, description: "Number of distinct key+lock types"}
+  - {name: keys,      type: int,   flag: "--keys",      default_test: 2, description: "Number of keys"}
+  - {name: locks,     type: int,   flag: "--locks",     default_test: 2, description: "Number of locks"}
+  - {name: prob_goal, type: float, flag: "--prob-goal", default_test: 1.0, range: [0.0, 1.0], description: "Probability any key is mentioned in the goal"}
+  - {name: typed,     type: bool,  flag: "--typed",     description: "Use typed domain"}
+  - {name: seed,      type: int,   flag: "--seed",      default_test: 1, description: "Random seed"}

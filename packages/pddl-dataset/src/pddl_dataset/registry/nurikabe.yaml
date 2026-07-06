@@ -1,0 +1,17 @@
+name: nurikabe
+binary: ./generate.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+# Six positional args: source(lpo|random) pid width height random_seed output_type.
+# `pid` is only meaningful when source=lpo (puzzle id on logicgamesonline.com),
+# but is required regardless. `output_type` should be `pddl` for our purposes.
+parameters:
+  - {name: source,      type: str, positional: 0, required: true, default_test: "lpo",  description: "Source: lpo or random"}
+  - {name: pid,         type: int, positional: 1, required: true, default_test: 2,      description: "Puzzle ID on logicgamesonline.com (only used for lpo)"}
+  - {name: width,       type: int, positional: 2, required: true, default_test: 3,      description: "Board width"}
+  - {name: height,      type: int, positional: 3, required: true, default_test: 4,      description: "Board height"}
+  - {name: seed,        type: int, positional: 4, required: true, default_test: 5,      description: "Random seed"}
+  - {name: output_type, type: str, positional: 5, required: true, default_test: "pddl", description: "Output type: pddl, raw, or solution"}

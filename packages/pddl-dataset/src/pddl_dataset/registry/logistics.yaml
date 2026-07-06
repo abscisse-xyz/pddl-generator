@@ -1,0 +1,14 @@
+name: logistics
+binary: ./logistics
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: airplanes,  type: int, flag: "-a", required: true, default_test: 1, description: "Number of airplanes"}
+  - {name: cities,     type: int, flag: "-c", required: true, default_test: 2, description: "Number of cities (>=1)"}
+  - {name: city_size,  type: int, flag: "-s", required: true, default_test: 2, description: "City size (>=1)"}
+  - {name: packages,   type: int, flag: "-p", required: true, default_test: 2, description: "Number of packages (>=1)"}
+  - {name: trucks,     type: int, flag: "-t", description: "Number of trucks (omit for generator default; must be >= cities)"}
+  - {name: seed,       type: int, flag: "-r", description: "Random seed (optional, >=1)"}

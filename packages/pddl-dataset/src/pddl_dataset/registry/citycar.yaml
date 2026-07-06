@@ -1,0 +1,41 @@
+name: citycar
+python_module: pddl_problem.citycar.generator_cmd_line
+domain_file:
+  source: emitted_by_generator
+  flag: "-domain_file"
+output:
+  mode: file_arg
+  flag: "-problem_file"
+fixed_args:
+  - "-problem_name"
+  - "citycar"
+parameters:
+  - name: rows
+    type: int
+    flag: "-rows"
+    required: true
+    default_test: 3
+    description: "Number of grid rows"
+  - name: columns
+    type: int
+    flag: "-columns"
+    required: true
+    default_test: 3
+    description: "Number of grid columns"
+  - name: cars
+    type: int
+    flag: "-cars"
+    required: true
+    default_test: 2
+    description: "Number of cars to route through the network"
+  - name: garages
+    type: int
+    flag: "-garages"
+    required: true
+    default_test: 1
+    description: "Number of starting garages"
+  - {name: roads,           type: int,   flag: "-roads",           default_test: 5, description: "Number of reusable road objects"}
+  - {name: density,         type: float, flag: "-density",         default_test: 1.0, range: [0.0, 1.0], description: "Clear-junction density used by mode=current"}
+  - {name: mode,            type: str,   flag: "-mode",            default_test: "current", description: "Generator mode: current, topology-first, or solution-first"}
+  - {name: topology_family, type: str,   flag: "-topology_family", default_test: "auto", description: "Topology template for solution modes, or auto"}
+  - {name: seed,            type: int,   flag: "-seed",            default_test: 1,   description: "Random seed"}

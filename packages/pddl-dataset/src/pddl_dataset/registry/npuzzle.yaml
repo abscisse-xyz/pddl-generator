@@ -1,0 +1,13 @@
+name: npuzzle
+binary: ./n-puzzle-generator
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+# Generator REQUIRES options in this exact order: -n <board> [-s <seed>] [-u].
+# All three flags must be passed positionally per the parser's argv[1..5] indexing.
+parameters:
+  - {name: board_size, type: int, flag: "-n", required: true, default_test: 2, description: "Rows / columns (>=2)"}
+  - {name: seed,       type: int, flag: "-s", default_test: 1, description: "Random seed"}
+  - {name: unsolvable, type: bool, flag: "-u", description: "Generate unsolvable instance"}

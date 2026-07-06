@@ -1,0 +1,13 @@
+name: openstacks
+binary: ./generator.py
+domain_file:
+  source: emitted_by_generator
+  filename: domain.pddl
+output:
+  mode: file_arg
+  flag: "--problem"
+parameters:
+  - {name: products, type: int, positional: 0, required: true, default_test: 5}
+  - {name: orders,   type: int, positional: 1, required: true, default_test: 3}
+  - {name: density,  type: int, positional: 2, required: true, default_test: 80, range: [0, 100]}
+  - {name: seed,     type: int, flag: "--seed", default_test: 1}

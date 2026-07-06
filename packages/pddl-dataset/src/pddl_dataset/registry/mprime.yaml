@@ -1,0 +1,14 @@
+name: mprime
+binary: ./mprime
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: locations, type: int, flag: "-l", required: true, default_test: 2, description: "Number of locations (>=2)"}
+  - {name: max_fuel,  type: int, flag: "-f", required: true, default_test: 2, description: "Max amount of fuel (>=1)"}
+  - {name: max_space, type: int, flag: "-s", required: true, default_test: 2, description: "Max amount of space (>=1)"}
+  - {name: vehicles,  type: int, flag: "-v", required: true, default_test: 1, description: "Number of vehicles (>=1)"}
+  - {name: cargos,    type: int, flag: "-c", required: true, default_test: 1, description: "Number of cargos (>=1)"}
+  - {name: seed,      type: int, flag: "-r", default_test: 1, description: "Random seed (optional)"}

@@ -1,0 +1,15 @@
+name: depots
+binary: ./depots
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: depots,        type: int, flag: "-e", required: true, default_test: 1, description: "Number of depots"}
+  - {name: distributors,  type: int, flag: "-i", required: true, default_test: 2, description: "Number of distributors"}
+  - {name: trucks,        type: int, flag: "-t", required: true, default_test: 3, description: "Number of trucks"}
+  - {name: pallets,       type: int, flag: "-p", required: true, default_test: 4, description: "Number of pallets"}
+  - {name: hoists,        type: int, flag: "-h", required: true, default_test: 5, description: "Number of hoists"}
+  - {name: crates,        type: int, flag: "-c", required: true, default_test: 6, description: "Number of crates"}
+  - {name: seed,          type: int, flag: "-s", description: "Random seed"}

@@ -1,0 +1,42 @@
+name: floortile
+binary: ./floortile-generator.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: name
+    type: str
+    positional: 0
+    required: true
+    default_test: myname
+    description: "Problem name"
+  - name: num_rows
+    type: int
+    positional: 1
+    required: true
+    default_test: 2
+    description: "Number of rows"
+  - name: num_columns
+    type: int
+    positional: 2
+    required: true
+    default_test: 3
+    description: "Number of columns"
+  - name: num_robots
+    type: int
+    positional: 3
+    required: true
+    default_test: 2
+    description: "Number of robots"
+  - name: mode_flag
+    type: str
+    positional: 4
+    required: true
+    default_test: seq
+    description: "Mode: seq | time"
+  - name: seed
+    type: int
+    positional: 5
+    description: "Random seed (optional)"

@@ -1,0 +1,35 @@
+name: spanner
+binary: ./spanner-generator.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: spanners
+    type: int
+    positional: 0
+    required: true
+    default_test: 3
+    description: "Number of spanners (min 1)"
+  - name: nuts
+    type: int
+    positional: 1
+    required: true
+    default_test: 2
+    description: "Number of nuts (min 1, <= spanners)"
+  - name: locations
+    type: int
+    positional: 2
+    required: true
+    default_test: 1
+    description: "Number of locations (min 1)"
+  - name: seed
+    type: int
+    flag: "--seed"
+    description: "Random seed"
+  - name: problem_name
+    type: str
+    flag: "--problem-name"
+    default: prob
+    description: "Problem name"

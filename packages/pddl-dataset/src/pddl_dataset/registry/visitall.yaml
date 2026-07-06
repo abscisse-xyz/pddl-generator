@@ -1,0 +1,14 @@
+name: visitall
+binary: ./grid
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: size,                  type: int,   flag: "-n", default_test: 3, description: "Size of square grid (sets x and y)"}
+  - {name: width,                 type: int,   flag: "-x",                  description: "Width of rectangular grid"}
+  - {name: height,                type: int,   flag: "-y",                  description: "Height of rectangular grid"}
+  - {name: ratio,                 type: float, flag: "-r",                  description: "Ratio of cells in goal state", range: [0, 1]}
+  - {name: unavailable_locations, type: int,   flag: "-u",                  description: "Number of unavailable (random) locations"}
+  - {name: seed,                  type: int,   flag: "-s", default_test: 1, description: "Random seed"}

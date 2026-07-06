@@ -1,0 +1,30 @@
+name: barman
+binary: ./barman-generator.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: num_cocktails
+    type: int
+    positional: 0
+    required: true
+    default_test: 1
+    description: "Number of cocktails (min 1)"
+  - name: num_ingredients
+    type: int
+    positional: 1
+    required: true
+    default_test: 2
+    description: "Number of ingredients (min 2)"
+  - name: num_shots
+    type: int
+    positional: 2
+    required: true
+    default_test: 3
+    description: "Number of shots (min num_cocktails+1)"
+  - name: seed
+    type: int
+    positional: 3
+    description: "Random seed (min 1, optional)"

@@ -1,0 +1,14 @@
+name: tyreworld
+binary: ./tyreworld
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: tyres
+    type: int
+    flag: "-n"
+    required: true
+    default_test: 2
+    description: "Number of tyres (minimal 1)"

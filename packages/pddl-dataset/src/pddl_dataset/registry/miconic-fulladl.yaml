@@ -1,0 +1,20 @@
+name: miconic-fulladl
+binary: ./miconic
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - {name: floors,             type: int, flag: "-f", required: true, default_test: 3, description: "Number of floors (>=2)"}
+  - {name: passengers,         type: int, flag: "-p", required: true, default_test: 2, description: "Number of passengers (>=1)"}
+  - {name: pct_up_down,        type: int, flag: "-u", description: "Percentage of up_down passengers (default 20)"}
+  - {name: pct_vip,            type: int, flag: "-v", description: "Percentage of VIP passengers (default 5)"}
+  - {name: pct_going_nonstop,  type: int, flag: "-g", description: "Percentage of going_nonstop passengers (default 5)"}
+  - {name: pct_attendant,      type: int, flag: "-a", description: "Percentage of attendants (default 60)"}
+  - {name: pct_never_alone,    type: int, flag: "-n", description: "Percentage of never_alone passengers (default 10)"}
+  - {name: pct_conflict_a,     type: int, flag: "-A", description: "Percentage of conflict_A passengers (default 20)"}
+  - {name: pct_conflict_b,     type: int, flag: "-B", description: "Percentage of conflict_B passengers (default 80)"}
+  - {name: pct_no_access,      type: int, flag: "-N", description: "Percentage of no-access passengers (default 50)"}
+  - {name: pct_no_access_floors, type: int, flag: "-F", description: "Percentage of floors not accessible (default 5)"}
+  - {name: seed,               type: int, flag: "-r", default_test: 1, description: "Random seed (optional)"}

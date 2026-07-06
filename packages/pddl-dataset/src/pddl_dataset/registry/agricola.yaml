@@ -1,0 +1,24 @@
+name: agricola
+binary: ./GenAgricola.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: last_stage
+    type: int
+    positional: 0
+    required: true
+    default_test: 1
+    description: "Last stage (positional)"
+  - name: seed
+    type: int
+    positional: 1
+    required: true
+    default_test: 2
+    description: "Random seed (positional)"
+  - {name: num_workers,         type: int,  flag: "--num_workers",         default_test: 5}
+  - {name: num_ints,            type: int,  flag: "--num_ints",            default_test: 16}
+  - {name: num_rounds,          type: int,  flag: "--num_rounds",          default_test: 20}
+  - {name: must_create_workers, type: bool, flag: "--must_create_workers", description: "Force creating all workers as a goal"}

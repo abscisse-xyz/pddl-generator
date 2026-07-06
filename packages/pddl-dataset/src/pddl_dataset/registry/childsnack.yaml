@@ -1,0 +1,44 @@
+name: childsnack
+binary: ./child-snack-generator.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: domain_type
+    type: str
+    positional: 0
+    required: true
+    default_test: pool
+    description: "Domain variant: pool | control | numeric"
+  - name: seed
+    type: int
+    positional: 1
+    required: true
+    default_test: 0
+    description: "Random seed"
+  - name: num_children
+    type: int
+    positional: 2
+    required: true
+    default_test: 3
+    description: "Number of children"
+  - name: num_trays
+    type: int
+    positional: 3
+    required: true
+    default_test: 2
+    description: "Number of trays"
+  - name: gluten_factor
+    type: float
+    positional: 4
+    required: true
+    default_test: 0.6
+    description: "Gluten factor"
+  - name: const_ratio
+    type: float
+    positional: 5
+    required: true
+    default_test: 1.0
+    description: "Constant factor (min 1.0 to guarantee solvability)"

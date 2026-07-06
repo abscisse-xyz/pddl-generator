@@ -1,0 +1,54 @@
+# Note: the transport generator dir contains three scripts (city-generator.py,
+# two-cities-generator.py, three-cities-generator.py). The Makefile test target invokes all
+# three. This YAML wraps the canonical city-generator.py; use the others by changing
+# `binary` (parameter shape is identical).
+name: transport
+binary: ./city-generator.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: nodes
+    type: int
+    positional: 0
+    required: true
+    default_test: 13
+    description: "Number of nodes"
+  - name: size
+    type: int
+    positional: 1
+    required: true
+    default_test: 1000
+    description: "Size (sqrt of area)"
+  - name: degree
+    type: float
+    positional: 2
+    required: true
+    default_test: 2
+    description: "Average node degree"
+  - name: mindistance
+    type: float
+    positional: 3
+    required: true
+    default_test: 100
+    description: "Minimum distance between nodes"
+  - name: trucks
+    type: int
+    positional: 4
+    required: true
+    default_test: 2
+    description: "Number of trucks"
+  - name: packages
+    type: int
+    positional: 5
+    required: true
+    default_test: 6
+    description: "Number of packages"
+  - name: seed
+    type: int
+    positional: 6
+    required: true
+    default_test: 2012
+    description: "Random seed"

@@ -1,0 +1,30 @@
+name: hiking
+binary: ./generator.py
+domain_file:
+  source: static
+  path: domain.pddl
+output:
+  mode: stdout
+parameters:
+  - name: couples
+    type: int
+    positional: 0
+    required: true
+    default_test: 2
+    description: "Number of couples"
+  - name: cars
+    type: int
+    positional: 1
+    required: true
+    default_test: 3
+    description: "Number of cars (for solvability >= couples + 1)"
+  - name: places
+    type: int
+    positional: 2
+    required: true
+    default_test: 4
+    description: "Number of places"
+  - name: seed
+    type: int
+    positional: 3
+    description: "Random seed (optional)"
