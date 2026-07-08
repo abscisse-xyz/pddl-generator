@@ -24,7 +24,6 @@ wheels/
 *.ipr
 
 ### VS Code ###
-.vscode/
 
 ### Mac OS ###
 .DS_Store
@@ -52,6 +51,6 @@ scratch.**
 # locals
 .test-out
 .out
+out
 .claude
 .vscode
-out
